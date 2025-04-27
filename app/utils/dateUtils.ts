@@ -13,9 +13,8 @@ const months: string[] = [
     "dec"
 ];
 
-const date: Date = new Date()
-
 const getDate = (): string => {
+    const date: Date = new Date()
     const monthIndex: number = date.getMonth()
     const day: number = date.getDate()
     const year: number = date.getFullYear()
@@ -25,6 +24,7 @@ const getDate = (): string => {
 }
 
 const getTime = (): string => {
+    const date: Date = new Date()
     let hour: number = date.getHours()
     const minutes: number = date.getMinutes()
     let prefix: string = "";
@@ -32,6 +32,8 @@ const getTime = (): string => {
 
     if (hour < 12) {
         affix = "am"
+    } else if (hour == 12) {
+        affix = "pm"
     } else {
         hour -= 12
         affix = "pm"
